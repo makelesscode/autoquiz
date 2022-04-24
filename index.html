@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Quiz</title>
+    <script src="autoquiz.js"></script>
+    <link rel="stylesheet" href="autoquiz.css">
+  </head>
+  <body>
+    <main>
+      <div id="quiz-form-wrapper">
+        <form id="quiz-form">
+          <textarea id="quiz-form-textarea" placeholder="Вставьте текст с определениями" required autofocus></textarea>
+          <small>Каждое определение должно начинаться с новой строки. Между названием определения и его описанием должно стоять тире или дефис.</small>
+          <label><input type="checkbox" id="quiz-form-test" /> Сделать в виде теста</label>
+          <button type="submit">Поехали</button>
+        </form>
+      </div>
+      <div id="quiz-body" hidden>
+        <h2>Вопрос <span id="quiz-body-current"></span> из <span id="quiz-body-total"></span></h2>
+        <p id="quiz-body-text"></p>
+        <ul id="quiz-body-test-options"></ul>
+        <div id="quiz-body-correct-answer" hidden></div>
+        <div class="quiz-body-toolbar">
+          <div class="quiz-body-toolbar__left">
+            <button id="quiz-body-correct-answer-trigger">Показать правильный ответ</button>
+            <button id="quiz-body-accept" hidden>Проверить ответ</button>
+            <button id="quiz-body-next">Следующий вопрос</button>
+          </div>
+          <div class="quiz-body-toolbar__right">
+            <button id="quiz-body-retry">Начать заново</button>
+          </div>
+        </div>
+      </div>
+      <div id="quiz-results" hidden>
+        <div id="quiz-results-test">Ваш результат &mdash; <span id="quiz-test-results-correct"></span> из <span id="quiz-test-results-total"></span> (<span id="quiz-test-results-success-rate"></span>%).</div>
+        <div id="quiz-results-questionnaire">Вопросы закончились.</div>
+        <div id="quiz-retry-wrapper">
+          <button id="quiz-retry">Можем повторить (нет)</button>
+        </div>
+      </div>
+    </main>
+    <template id="quiz-template-test-option">
+      <li>
+        <label><input type="radio" name="test"> <span class="quiz-body-test-optiontext"></span></label>
+      </li>
+    </template>
+  </body>
+</html>
